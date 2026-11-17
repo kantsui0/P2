@@ -1,0 +1,9 @@
+Paginação 5/5/2 usa total=12, skip=0/5/10 e limites dos botões.
+Nome e e-mail encontram cliente fora da primeira página; busca reinicia skip=0.
+Resposta atrasada da busca anterior não substitui resultado recente; loading visível.
+Estados vazio/erro e recuperação por retry.
+Validação nome/e-mail sem POST inválido; 409 visível; cadastro e retorno à lista atualizada.
+Edição pré-preenchida, 409, PATCH e detalhe atualizado inclusive após reload da página (dados simulados em memória).
+Contagens consultadas: 2 pedidos/3 atendimentos (total, não tamanho da página); falha bloqueia confirmação; cancelar não apaga; erro DELETE visível; confirmar volta à lista atualizada.
+ID inexistente no detalhe e edição: Cliente não encontrado.
+Sem erros JS não tratados; layout 375px sem overflow.

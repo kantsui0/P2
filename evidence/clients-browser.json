@@ -1,0 +1,552 @@
+{
+  "source": "SIMULATED_API_NOT_REAL_INTEGRATION",
+  "checks": [
+    "Paginação 5/5/2 usa total=12, skip=0/5/10 e limites dos botões.",
+    "Nome e e-mail encontram cliente fora da primeira página; busca reinicia skip=0.",
+    "Resposta atrasada da busca anterior não substitui resultado recente; loading visível.",
+    "Estados vazio/erro e recuperação por retry.",
+    "Validação nome/e-mail sem POST inválido; 409 visível; cadastro e retorno à lista atualizada.",
+    "Edição pré-preenchida, 409, PATCH e detalhe atualizado inclusive após reload da página (dados simulados em memória).",
+    "Contagens consultadas: 2 pedidos/3 atendimentos (envelopes completos confirmados no servidor); falha bloqueia confirmação; cancelar não apaga; erro DELETE visível; confirmar volta à lista atualizada.",
+    "ID inexistente no detalhe e edição: Cliente não encontrado.",
+    "Sem erros JS não tratados; layout 375px sem overflow."
+  ],
+  "calls": [
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          ""
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          ""
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          ""
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "5"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          ""
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "10"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          ""
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "5"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          "Cliente 12"
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          "cliente12@teste.com"
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          "cliente 01"
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          "Cliente 12"
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          "nenhum"
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          "falha"
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          "falha"
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "POST",
+      "path": "/clientes",
+      "query": {}
+    },
+    {
+      "method": "POST",
+      "path": "/clientes",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          ""
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          "novo@teste.com"
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/atendimentos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13",
+      "query": {}
+    },
+    {
+      "method": "PATCH",
+      "path": "/clientes/13",
+      "query": {}
+    },
+    {
+      "method": "PATCH",
+      "path": "/clientes/13",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/atendimentos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/atendimentos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/atendimentos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/atendimentos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/atendimentos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/13/atendimentos",
+      "query": {}
+    },
+    {
+      "method": "DELETE",
+      "path": "/clientes/13",
+      "query": {}
+    },
+    {
+      "method": "DELETE",
+      "path": "/clientes/13",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          ""
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes",
+      "query": {
+        "q": [
+          "editado@teste.com"
+        ],
+        "limit": [
+          "5"
+        ],
+        "skip": [
+          "0"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pedidos",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/999",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/999",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/auth/me",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/999",
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/clientes/999",
+      "query": {}
+    }
+  ],
+  "pageErrors": []
+}

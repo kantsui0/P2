@@ -1,0 +1,9 @@
+Login real retorna accessToken; Bearer funciona em /auth/me; clientes/pedidos/atendimentos e limites de paginação observados.
+Senha incorreta real (400) no formulário; login restaura pathname/query/hash e nome vem de /auth/me.
+Paginação real 5/5/2 e busca por nome/e-mail do cliente 12, fora da primeira página; skip reiniciado.
+Validação local; criação e edição reais; 409 em ambos; volta à lista/detalhe atualizados e persistência JSON após reload.
+Cliente real com 2 pedidos e 3 atendimentos; contagens visíveis; cancelar preserva; confirmar apaga em cascata e atualiza lista.
+Cliente inexistente, /xyz/link para Painel e logout real verificados.
+500 real de /http/500 encaminhado para a leitura de sessão por Playwright: erro na tela e retry funcional; sem modificar servidor.
+API realmente parada: rede falha na tela; API reiniciada: token antigo retorna 401, sessão limpa, mensagem e novo login funcionam.
+Dados originais preservados; nenhum erro JS não tratado; viewport 375px sem overflow.

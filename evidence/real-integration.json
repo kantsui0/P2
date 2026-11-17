@@ -1,0 +1,861 @@
+{
+  "source": "REAL_PROVIDED_SERVER",
+  "checks": [
+    "Login real retorna accessToken; Bearer funciona em /auth/me; clientes/pedidos/atendimentos e limites de paginação observados.",
+    "Senha incorreta real (400) no formulário; login restaura pathname/query/hash e nome vem de /auth/me.",
+    "Paginação real 5/5/2 e busca por nome/e-mail do cliente 12, fora da primeira página; skip reiniciado.",
+    "Validação local; criação e edição reais; 409 em ambos; volta à lista/detalhe atualizados e persistência JSON após reload.",
+    "Cliente real com 2 pedidos e 3 atendimentos; contagens visíveis; cancelar preserva; confirmar apaga em cascata e atualiza lista.",
+    "Cliente inexistente, /xyz/link para Painel e logout real verificados.",
+    "500 real de /http/500 encaminhado para a leitura de sessão por Playwright: erro na tela e retry funcional; sem modificar servidor.",
+    "API realmente parada: rede falha na tela; API reiniciada: token antigo retorna 401, sessão limpa, mensagem e novo login funcionam.",
+    "Dados originais preservados; nenhum erro JS não tratado; viewport 375px sem overflow."
+  ],
+  "observed": {
+    "login": {
+      "status": 200,
+      "body": {
+        "accessToken": "[REDACTED UUID]",
+        "id": 1,
+        "username": "emilys",
+        "nome": "Emily Johnson"
+      }
+    },
+    "/auth/me": {
+      "status": 200,
+      "body": {
+        "id": 1,
+        "username": "emilys",
+        "nome": "Emily Johnson"
+      }
+    },
+    "/clientes?limit=5&skip=0": {
+      "status": 200,
+      "body": {
+        "clientes": [
+          {
+            "id": 1,
+            "nome": "Marina Albuquerque",
+            "email": "marina.albuquerque@exemplo.com",
+            "telefone": "(22) 99811-2040",
+            "empresa": "Padaria Sol Nascente",
+            "cidade": "Saquarema"
+          },
+          {
+            "id": 2,
+            "nome": "Rafael Tavares",
+            "email": "rafael.tavares@exemplo.com",
+            "telefone": "(21) 98822-1177",
+            "empresa": "Tavares Informática",
+            "cidade": "Maricá"
+          },
+          {
+            "id": 3,
+            "nome": "Camila Duarte",
+            "email": "camila.duarte@exemplo.com",
+            "telefone": "(22) 99733-4521",
+            "empresa": "Studio Camila Duarte",
+            "cidade": "Araruama"
+          },
+          {
+            "id": 4,
+            "nome": "Bruno Figueiredo",
+            "email": "bruno.figueiredo@exemplo.com",
+            "telefone": "(21) 97744-3098",
+            "empresa": "Figueiredo Construções",
+            "cidade": "Niterói"
+          },
+          {
+            "id": 5,
+            "nome": "Helena Moreira",
+            "email": "helena.moreira@exemplo.com",
+            "telefone": "(22) 99655-8712",
+            "empresa": "Clínica Bem Viver",
+            "cidade": "Cabo Frio"
+          }
+        ],
+        "total": 12,
+        "skip": 0,
+        "limit": 5
+      }
+    },
+    "/pedidos": {
+      "status": 200,
+      "body": {
+        "pedidos": [
+          {
+            "id": 1,
+            "clienteId": 1,
+            "data": "2026-11-03",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Impressora multifuncional",
+                "preco": 679,
+                "quantidade": 5
+              },
+              {
+                "id": 2,
+                "titulo": "Pen drive 64 GB",
+                "preco": 42,
+                "quantidade": 5
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "clienteId": 1,
+            "data": "2026-09-28",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Kit canetas coloridas",
+                "preco": 16.8,
+                "quantidade": 3
+              },
+              {
+                "id": 2,
+                "titulo": "Impressora multifuncional",
+                "preco": 679,
+                "quantidade": 3
+              },
+              {
+                "id": 3,
+                "titulo": "Camiseta personalizada",
+                "preco": 39.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "clienteId": 1,
+            "data": "2026-10-14",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Licença de software (anual)",
+                "preco": 349,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "clienteId": 1,
+            "data": "2026-11-03",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Mouse sem fio",
+                "preco": 59.9,
+                "quantidade": 5
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "clienteId": 2,
+            "data": "2026-10-29",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Camiseta personalizada",
+                "preco": 39.9,
+                "quantidade": 1
+              },
+              {
+                "id": 2,
+                "titulo": "Suporte para notebook",
+                "preco": 74.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "clienteId": 2,
+            "data": "2026-08-19",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Resma de papel A4",
+                "preco": 31.5,
+                "quantidade": 1
+              },
+              {
+                "id": 2,
+                "titulo": "Webcam Full HD",
+                "preco": 199.9,
+                "quantidade": 1
+              },
+              {
+                "id": 3,
+                "titulo": "Camiseta personalizada",
+                "preco": 39.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 7,
+            "clienteId": 2,
+            "data": "2026-10-06",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Caneca de porcelana",
+                "preco": 24.5,
+                "quantidade": 1
+              },
+              {
+                "id": 2,
+                "titulo": "Webcam Full HD",
+                "preco": 199.9,
+                "quantidade": 2
+              },
+              {
+                "id": 3,
+                "titulo": "Licença de software (anual)",
+                "preco": 349,
+                "quantidade": 5
+              },
+              {
+                "id": 4,
+                "titulo": "Cabo HDMI 2 m",
+                "preco": 22,
+                "quantidade": 5
+              }
+            ]
+          },
+          {
+            "id": 8,
+            "clienteId": 3,
+            "data": "2026-09-02",
+            "status": "cancelado",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Suporte para notebook",
+                "preco": 74.9,
+                "quantidade": 2
+              },
+              {
+                "id": 2,
+                "titulo": "Mouse sem fio",
+                "preco": 59.9,
+                "quantidade": 1
+              },
+              {
+                "id": 3,
+                "titulo": "Camiseta personalizada",
+                "preco": 39.9,
+                "quantidade": 3
+              }
+            ]
+          },
+          {
+            "id": 9,
+            "clienteId": 3,
+            "data": "2026-10-14",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Mouse sem fio",
+                "preco": 59.9,
+                "quantidade": 3
+              },
+              {
+                "id": 2,
+                "titulo": "Suporte para notebook",
+                "preco": 74.9,
+                "quantidade": 2
+              },
+              {
+                "id": 3,
+                "titulo": "Caderno universitário",
+                "preco": 18.9,
+                "quantidade": 3
+              }
+            ]
+          },
+          {
+            "id": 10,
+            "clienteId": 4,
+            "data": "2026-10-06",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Caderno universitário",
+                "preco": 18.9,
+                "quantidade": 1
+              },
+              {
+                "id": 2,
+                "titulo": "Teclado mecânico",
+                "preco": 289,
+                "quantidade": 1
+              },
+              {
+                "id": 3,
+                "titulo": "Caneca de porcelana",
+                "preco": 24.5,
+                "quantidade": 2
+              },
+              {
+                "id": 4,
+                "titulo": "Mouse sem fio",
+                "preco": 59.9,
+                "quantidade": 5
+              }
+            ]
+          },
+          {
+            "id": 11,
+            "clienteId": 4,
+            "data": "2026-10-14",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Mouse sem fio",
+                "preco": 59.9,
+                "quantidade": 5
+              },
+              {
+                "id": 2,
+                "titulo": "Impressora multifuncional",
+                "preco": 679,
+                "quantidade": 2
+              }
+            ]
+          },
+          {
+            "id": 12,
+            "clienteId": 4,
+            "data": "2026-09-02",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Impressora multifuncional",
+                "preco": 679,
+                "quantidade": 2
+              },
+              {
+                "id": 2,
+                "titulo": "Teclado mecânico",
+                "preco": 289,
+                "quantidade": 1
+              },
+              {
+                "id": 3,
+                "titulo": "Webcam Full HD",
+                "preco": 199.9,
+                "quantidade": 2
+              }
+            ]
+          },
+          {
+            "id": 13,
+            "clienteId": 5,
+            "data": "2026-10-14",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Mouse sem fio",
+                "preco": 59.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 14,
+            "clienteId": 5,
+            "data": "2026-08-19",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Kit canetas coloridas",
+                "preco": 16.8,
+                "quantidade": 2
+              }
+            ]
+          },
+          {
+            "id": 15,
+            "clienteId": 6,
+            "data": "2026-08-19",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Kit canetas coloridas",
+                "preco": 16.8,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 16,
+            "clienteId": 6,
+            "data": "2026-09-28",
+            "status": "cancelado",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Caneca de porcelana",
+                "preco": 24.5,
+                "quantidade": 5
+              },
+              {
+                "id": 2,
+                "titulo": "Suporte para notebook",
+                "preco": 74.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 17,
+            "clienteId": 7,
+            "data": "2026-09-02",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Camiseta personalizada",
+                "preco": 39.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 18,
+            "clienteId": 7,
+            "data": "2026-10-14",
+            "status": "cancelado",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Caneca de porcelana",
+                "preco": 24.5,
+                "quantidade": 1
+              },
+              {
+                "id": 2,
+                "titulo": "Licença de software (anual)",
+                "preco": 349,
+                "quantidade": 2
+              }
+            ]
+          },
+          {
+            "id": 19,
+            "clienteId": 8,
+            "data": "2026-08-04",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Impressora multifuncional",
+                "preco": 679,
+                "quantidade": 3
+              },
+              {
+                "id": 2,
+                "titulo": "Cadeira ergonômica",
+                "preco": 1199,
+                "quantidade": 2
+              },
+              {
+                "id": 3,
+                "titulo": "Cabo HDMI 2 m",
+                "preco": 22,
+                "quantidade": 1
+              },
+              {
+                "id": 4,
+                "titulo": "Mouse sem fio",
+                "preco": 59.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 20,
+            "clienteId": 8,
+            "data": "2026-10-06",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Mouse sem fio",
+                "preco": 59.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 21,
+            "clienteId": 9,
+            "data": "2026-10-14",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Resma de papel A4",
+                "preco": 31.5,
+                "quantidade": 2
+              },
+              {
+                "id": 2,
+                "titulo": "Cabo HDMI 2 m",
+                "preco": 22,
+                "quantidade": 5
+              }
+            ]
+          },
+          {
+            "id": 22,
+            "clienteId": 9,
+            "data": "2026-09-28",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Cabo HDMI 2 m",
+                "preco": 22,
+                "quantidade": 2
+              },
+              {
+                "id": 2,
+                "titulo": "Teclado mecânico",
+                "preco": 289,
+                "quantidade": 1
+              },
+              {
+                "id": 3,
+                "titulo": "Monitor 24 polegadas",
+                "preco": 849.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 23,
+            "clienteId": 10,
+            "data": "2026-10-06",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Teclado mecânico",
+                "preco": 289,
+                "quantidade": 1
+              },
+              {
+                "id": 2,
+                "titulo": "Licença de software (anual)",
+                "preco": 349,
+                "quantidade": 3
+              }
+            ]
+          },
+          {
+            "id": 24,
+            "clienteId": 10,
+            "data": "2026-10-14",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Caderno universitário",
+                "preco": 18.9,
+                "quantidade": 5
+              }
+            ]
+          },
+          {
+            "id": 25,
+            "clienteId": 11,
+            "data": "2026-10-14",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Suporte para notebook",
+                "preco": 74.9,
+                "quantidade": 1
+              },
+              {
+                "id": 2,
+                "titulo": "Caderno universitário",
+                "preco": 18.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 26,
+            "clienteId": 12,
+            "data": "2026-10-06",
+            "status": "cancelado",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Teclado mecânico",
+                "preco": 289,
+                "quantidade": 3
+              },
+              {
+                "id": 2,
+                "titulo": "Cabo HDMI 2 m",
+                "preco": 22,
+                "quantidade": 1
+              },
+              {
+                "id": 3,
+                "titulo": "Camiseta personalizada",
+                "preco": 39.9,
+                "quantidade": 2
+              },
+              {
+                "id": 4,
+                "titulo": "Kit canetas coloridas",
+                "preco": 16.8,
+                "quantidade": 3
+              }
+            ]
+          }
+        ],
+        "total": 26
+      }
+    },
+    "/clientes/1/pedidos": {
+      "status": 200,
+      "body": {
+        "pedidos": [
+          {
+            "id": 1,
+            "clienteId": 1,
+            "data": "2026-11-03",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Impressora multifuncional",
+                "preco": 679,
+                "quantidade": 5
+              },
+              {
+                "id": 2,
+                "titulo": "Pen drive 64 GB",
+                "preco": 42,
+                "quantidade": 5
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "clienteId": 1,
+            "data": "2026-09-28",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Kit canetas coloridas",
+                "preco": 16.8,
+                "quantidade": 3
+              },
+              {
+                "id": 2,
+                "titulo": "Impressora multifuncional",
+                "preco": 679,
+                "quantidade": 3
+              },
+              {
+                "id": 3,
+                "titulo": "Camiseta personalizada",
+                "preco": 39.9,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "clienteId": 1,
+            "data": "2026-10-14",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Licença de software (anual)",
+                "preco": 349,
+                "quantidade": 1
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "clienteId": 1,
+            "data": "2026-11-03",
+            "status": "pago",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Mouse sem fio",
+                "preco": 59.9,
+                "quantidade": 5
+              }
+            ]
+          }
+        ],
+        "total": 4
+      }
+    },
+    "/clientes/1/atendimentos": {
+      "status": 200,
+      "body": {
+        "atendimentos": [
+          {
+            "id": 1,
+            "clienteId": 1,
+            "titulo": "Pedido de segunda via de nota",
+            "texto": "Solicitou a segunda via da nota fiscal. Enviei por e-mail no mesmo dia.",
+            "canal": "email",
+            "data": "2026-10-21"
+          },
+          {
+            "id": 3,
+            "clienteId": 1,
+            "titulo": "Confirmação de pagamento",
+            "texto": "Confirmou o pagamento por Pix. Liberei o pedido para separação.",
+            "canal": "email",
+            "data": "2026-09-02"
+          },
+          {
+            "id": 2,
+            "clienteId": 1,
+            "titulo": "Reclamação de produto",
+            "texto": "Produto chegou com a embalagem amassada. Combinamos a troca sem custo.",
+            "canal": "email",
+            "data": "2026-08-19"
+          }
+        ],
+        "total": 3
+      }
+    },
+    "limit=0&skip=-1": {
+      "status": 200,
+      "limit": 30,
+      "skip": 0,
+      "length": 12,
+      "total": 12
+    },
+    "limit=-5&skip=0": {
+      "status": 200,
+      "limit": 30,
+      "skip": 0,
+      "length": 12,
+      "total": 12
+    },
+    "limit=1000&skip=0": {
+      "status": 200,
+      "limit": 1000,
+      "skip": 0,
+      "length": 12,
+      "total": 12
+    },
+    "limit=2.5&skip=1.5": {
+      "status": 200,
+      "limit": 2.5,
+      "skip": 1.5,
+      "length": 3,
+      "total": 12
+    },
+    "limit=abc&skip=abc": {
+      "status": 200,
+      "limit": 30,
+      "skip": 0,
+      "length": 12,
+      "total": 12
+    },
+    "test_counts": {
+      "pedidos": {
+        "pedidos": [
+          {
+            "id": 27,
+            "clienteId": 13,
+            "data": "2026-11-17",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Item de teste",
+                "preco": 12.5,
+                "quantidade": 2
+              }
+            ]
+          },
+          {
+            "id": 28,
+            "clienteId": 13,
+            "data": "2026-11-17",
+            "status": "aberto",
+            "itens": [
+              {
+                "id": 1,
+                "titulo": "Item de teste",
+                "preco": 12.5,
+                "quantidade": 2
+              }
+            ]
+          }
+        ],
+        "total": 2
+      },
+      "atendimentos": {
+        "atendimentos": [
+          {
+            "id": 26,
+            "clienteId": 13,
+            "titulo": "Teste",
+            "texto": "Atendimento de teste",
+            "canal": "whatsapp",
+            "data": "2026-11-17"
+          },
+          {
+            "id": 25,
+            "clienteId": 13,
+            "titulo": "Teste",
+            "texto": "Atendimento de teste",
+            "canal": "email",
+            "data": "2026-11-17"
+          },
+          {
+            "id": 24,
+            "clienteId": 13,
+            "titulo": "Teste",
+            "texto": "Atendimento de teste",
+            "canal": "telefone",
+            "data": "2026-11-17"
+          }
+        ],
+        "total": 3
+      }
+    }
+  },
+  "pageErrors": []
+}

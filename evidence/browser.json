@@ -1,0 +1,17 @@
+{
+  "checks": [
+    {
+      "width": 1280,
+      "http": 200,
+      "rendered": true,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 375,
+      "http": 200,
+      "rendered": true,
+      "horizontalOverflow": false
+    }
+  ],
+  "errors": []
+}

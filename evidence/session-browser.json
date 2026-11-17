@@ -1,0 +1,340 @@
+{
+  "source": "SIMULATED_API_NOT_REAL_INTEGRATION",
+  "checks": [
+    "Rota protegida exige login; senha incorreta aparece no formulário; loading finalizado.",
+    "Retorno completo preservado inclusive reload do Login; nome de /auth/me; header Bearer validado.",
+    "/xyz autenticado mostra aviso/link; logout limpa sessão; /xyz sem login é protegido.",
+    "Login: 400 visível e loading finalizado.",
+    "Login: 404 visível e loading finalizado.",
+    "Login: 409 visível e loading finalizado.",
+    "Login: 500 visível e loading finalizado.",
+    "Login: falha de rede visível e loading finalizado.",
+    "Login direto usa Painel como padrão.",
+    "Protegida: 400 visível, loading finalizado e retry recupera sessão.",
+    "Protegida: 404 visível, loading finalizado e retry recupera sessão.",
+    "Protegida: 409 visível, loading finalizado e retry recupera sessão.",
+    "Protegida: 500 visível, loading finalizado e retry recupera sessão.",
+    "Protegida: rede falha com mensagem e retry funciona.",
+    "401 SIMULADO limpa sessão, mostra mensagem e restaura destino após novo login.",
+    "401 em chamada protegida durante sessão ativa também limpa sessão e redireciona, sem reload.",
+    "375px sem overflow e sem erros JS não tratados."
+  ],
+  "requests": [
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "protected": false
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "protected": false
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes/42",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes/42",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "protected": false
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "protected": false
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "protected": false
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "protected": false
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "protected": false
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "protected": false
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "protected": false
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/clientes?limit=100&skip=0",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/pedidos",
+      "method": "GET",
+      "protected": true
+    },
+    {
+      "path": "/auth/me",
+      "method": "GET",
+      "protected": true
+    }
+  ],
+  "pageErrors": []
+}

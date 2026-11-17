@@ -1,0 +1,7 @@
+Validações reais no front: zero itens/título vazio/preço vazio/negativo/quantidade fracionária e zero bloqueiam requests; preço zero aceito; vários itens totalizam R$ 25,00.
+Edição de itens apenas em aberto com PATCH itens; aberto→pago, pago→cancelado e aberto→cancelado com PATCH status; pago/cancelado sem editar e cancelado sem ações de status; total 37,50 persiste no reload.
+Exclusão de pedido: cancelar preserva, confirmar exclui; lista e status persistem após recarregar.
+Criação real em todos os canais; lista por data desc e id desc no empate, registro antigo com ID maior fica no fim; todos os filtros/contadores conferidos.
+Filtro mantido após criar/editar/excluir; editar canal remove registro da seleção; cancelamento/confirmar exclusão funcionam; recarga confirma persistência.
+Persistência nos JSON reais confirmada; desktop/375px sem overflow; nenhum erro JS não tratado.
+Cleanup: cliente e vínculos de teste removidos; dados anteriores preservados.

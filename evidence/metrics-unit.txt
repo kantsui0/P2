@@ -1,0 +1,1 @@
+PASS: totais/selos/VIP limite/zero válido/sem válidos/média zero/status/Top3/filtros inclusivos/ordenação; entradas congeladas sem mutação.

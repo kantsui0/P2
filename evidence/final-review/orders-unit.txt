@@ -1,0 +1,1 @@
+PASS: total puro, entrada congelada, zero, lista vazia e três transições permitidas.

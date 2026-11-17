@@ -1,0 +1,212 @@
+{
+  "checks": [
+    {
+      "scenario": "01-empty-detail",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "02-client-edit",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "03-client-create",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "04-order-form",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "05-contact-form",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "06-order-error-400",
+      "source": "Falha simulada: 400",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "06-order-error-404",
+      "source": "Falha simulada: 404",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "06-order-error-409",
+      "source": "Falha simulada: 409",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "06-order-error-500",
+      "source": "Falha simulada: 500",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "06-order-error-network",
+      "source": "Falha simulada: network",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "07-order-edit",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "08-order-confirm",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "09-contact-edit",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "10-contact-confirm",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "11-client-confirm",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "12-dashboard-loading",
+      "source": "API real com atraso artificial",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "13-report-error-painel",
+      "source": "500 simulado",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "13-report-error-pedidos",
+      "source": "500 simulado",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "14-all-orders-empty",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "badge/orders/history retries",
+      "source": "500 simulado seguido por leitura real"
+    },
+    {
+      "scenario": "15-detail-loading",
+      "source": "API real com atraso artificial",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "16-persisted-detail",
+      "source": "API real",
+      "width": 375,
+      "horizontalOverflow": false
+    },
+    {
+      "scenario": "retry e voltar em detalhe/edição inexistentes",
+      "source": "404 API real"
+    },
+    {
+      "scenario": "17-login",
+      "source": "Sair após 500 simulado na restauração da sessão",
+      "width": 375,
+      "horizontalOverflow": false
+    }
+  ],
+  "consoleExpectedResourceFailures": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    }
+  ],
+  "unexpectedConsole": [],
+  "pageErrors": []
+}

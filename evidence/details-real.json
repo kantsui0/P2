@@ -1,0 +1,218 @@
+{
+  "source": "REAL_PROVIDED_SERVER",
+  "checks": [
+    "Validações reais no front: zero itens/título vazio/preço vazio/negativo/quantidade fracionária e zero bloqueiam requests; preço zero aceito; vários itens totalizam R$ 25,00.",
+    "Edição de itens apenas em aberto com PATCH itens; aberto→pago, pago→cancelado e aberto→cancelado com PATCH status; pago/cancelado sem editar e cancelado sem ações de status; total 37,50 persiste no reload.",
+    "Exclusão de pedido: cancelar preserva, confirmar exclui; lista e status persistem após recarregar.",
+    "Criação real em todos os canais; lista por data desc e id desc no empate, registro antigo com ID maior fica no fim; todos os filtros/contadores conferidos.",
+    "Filtro mantido após criar/editar/excluir; editar canal remove registro da seleção; cancelamento/confirmar exclusão funcionam; recarga confirma persistência.",
+    "Persistência nos JSON reais confirmada; desktop/375px sem overflow; nenhum erro JS não tratado."
+  ],
+  "mutations": [
+    {
+      "method": "POST",
+      "path": "/clientes/13/pedidos",
+      "body": {
+        "itens": [
+          {
+            "titulo": "Produto principal",
+            "preco": 12.5,
+            "quantidade": 2
+          },
+          {
+            "titulo": "Brinde",
+            "preco": 0,
+            "quantidade": 3
+          }
+        ]
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/pedidos/27",
+      "body": {
+        "itens": [
+          {
+            "titulo": "Produto principal",
+            "preco": 12.5,
+            "quantidade": 3
+          },
+          {
+            "titulo": "Brinde",
+            "preco": 0,
+            "quantidade": 3
+          }
+        ]
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/pedidos/27",
+      "body": {
+        "status": "pago"
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/pedidos/27",
+      "body": {
+        "status": "cancelado"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/clientes/13/pedidos",
+      "body": {
+        "itens": [
+          {
+            "titulo": "Pedido sem custo",
+            "preco": 0,
+            "quantidade": 1
+          }
+        ]
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/pedidos/28",
+      "body": {
+        "status": "cancelado"
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/pedidos/28",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "path": "/clientes/13/atendimentos",
+      "body": {
+        "titulo": "Ligação",
+        "texto": "Texto Ligação",
+        "canal": "telefone"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/clientes/13/atendimentos",
+      "body": {
+        "titulo": "E-mail",
+        "texto": "Texto E-mail",
+        "canal": "email"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/clientes/13/atendimentos",
+      "body": {
+        "titulo": "Conversa WhatsApp",
+        "texto": "Texto Conversa WhatsApp",
+        "canal": "whatsapp"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/clientes/13/atendimentos",
+      "body": {
+        "titulo": "Visita",
+        "texto": "Texto Visita",
+        "canal": "presencial"
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/atendimentos/25",
+      "body": {
+        "titulo": "E-mail virou WhatsApp",
+        "texto": "Texto editado",
+        "canal": "whatsapp"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/clientes/13/atendimentos",
+      "body": {
+        "titulo": "Outro canal",
+        "texto": "Criado com filtro ativo",
+        "canal": "presencial"
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/atendimentos/25",
+      "body": null
+    }
+  ],
+  "orders": {
+    "pedidos": [
+      {
+        "id": 27,
+        "clienteId": 13,
+        "data": "2026-11-17",
+        "status": "cancelado",
+        "itens": [
+          {
+            "id": 1,
+            "titulo": "Produto principal",
+            "preco": 12.5,
+            "quantidade": 3
+          },
+          {
+            "id": 2,
+            "titulo": "Brinde",
+            "preco": 0,
+            "quantidade": 3
+          }
+        ]
+      }
+    ],
+    "total": 1
+  },
+  "contacts": {
+    "atendimentos": [
+      {
+        "id": 29,
+        "clienteId": 13,
+        "titulo": "Outro canal",
+        "texto": "Criado com filtro ativo",
+        "canal": "presencial",
+        "data": "2026-11-17"
+      },
+      {
+        "id": 27,
+        "clienteId": 13,
+        "titulo": "Visita",
+        "texto": "Texto Visita",
+        "canal": "presencial",
+        "data": "2026-11-17"
+      },
+      {
+        "id": 26,
+        "clienteId": 13,
+        "titulo": "Conversa WhatsApp",
+        "texto": "Texto Conversa WhatsApp",
+        "canal": "whatsapp",
+        "data": "2026-11-17"
+      },
+      {
+        "id": 24,
+        "clienteId": 13,
+        "titulo": "Ligação",
+        "texto": "Texto Ligação",
+        "canal": "telefone",
+        "data": "2026-11-17"
+      },
+      {
+        "id": 28,
+        "clienteId": 13,
+        "titulo": "Registro antigo",
+        "texto": "Histórico antigo",
+        "canal": "telefone",
+        "data": "2000-01-01"
+      }
+    ],
+    "total": 5
+  },
+  "pageErrors": []
+}
