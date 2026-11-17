@@ -1,10 +1,12 @@
 # Preparação da entrega
 
+**Publicação bloqueada:** git push e a API de arquivos retornaram HTTP 403. Nenhum arquivo foi enviado. Os commits completos permanecem locais. É necessário autorizar escrita da integração em P2 antes de publicar.
+
 Repositório destinado à entrega: https://github.com/kantsui0/P2 (público).
 
 Histórico: commits locais de implementação e documentação preservados; atualização de publicação acrescentada sem inventar commits retroativos por etapa.
 
-O ZIP crm-front.zip é gerado por git archive a partir do commit publicado, com prefixo crm-front/. Não inclui node_modules, .git, .env local ou dist. Inclui .env.example, package-lock.json, fontes, README, testes e evidências.
+O ZIP crm-front.zip é gerado por git archive a partir do commit local preparado para publicação, com prefixo crm-front/. Não inclui node_modules, .git, .env local ou dist. Inclui .env.example, package-lock.json, fontes, README, testes e evidências.
 
 A validação do pacote é feita extraindo em pasta limpa, seguindo npm ci, cópia de .env.example, npm run build e npm run lint. O relatório externo validacao-entrega.json contém hash do ZIP e commit correspondente, evitando modificar o pacote depois de validado.
 
