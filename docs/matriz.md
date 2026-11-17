@@ -1,3 +1,5 @@
+> Atualização de entrega: repositório público definido em https://github.com/kantsui0/P2; consulte docs/entrega.md e o relatório externo validacao-entrega.json para a validação do pacote publicado. Os bloqueios abaixo refletem a data da revisão funcional. Submissão ao AVA continua não confirmada.
+
 # Matriz final de requisitos — revisão do PDF completo
 
 PDF reaberto integralmente (2 páginas) em 17/11/2026. Os 31 itens originais da etapa 1 estão preservados abaixo. Resultado: **29 passou, 0 falhou, 2 bloqueado**. Revisão funcional aprovada; entrega completa da prova permanece pendente dos itens 30–31.

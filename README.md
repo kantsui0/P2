@@ -2,44 +2,19 @@
 
 Aplicação Vite + React + TypeScript com autenticação, clientes, pedidos, histórico de atendimento, Painel, selos e filtros. Usa o `servidor-crm` fornecido pela professora, sem modificar seu código. A API é necessária para login e dados; o build do front não exige a API ligada.
 
-## Repositório GitHub — publicação pendente
+## Repositório GitHub
 
-**Link confirmado: ainda não disponível.** Nenhum remoto estava configurado e a autenticação disponível no GitHub foi recusada na preparação desta entrega. Não há URL fictícia neste README.
+**Repositório:** https://github.com/kantsui0/P2
 
-Depois da publicação, o responsável deve inserir aqui a URL real, abrir o link e confirmar que README, fontes e commits estão acessíveis à professora. Até isso acontecer, o critério de link GitHub não está cumprido. O ZIP funciona independentemente da publicação.
+**Histórico de commits:** https://github.com/kantsui0/P2/commits/main/
 
-## Publicar manualmente no GitHub
-
-1. No GitHub, crie um repositório novo e vazio chamado `crm-front`, sem adicionar README, licença ou .gitignore. Escolha uma visibilidade que permita acesso à professora.
-2. Use a pasta original com `.git`, ou restaure o histórico do arquivo separado `crm-front.bundle`:
+O repositório é público para acesso da professora. Para obter o código com histórico:
 
 ```sh
-git clone crm-front.bundle crm-front
-cd crm-front
+git clone https://github.com/kantsui0/P2.git crm-front
 ```
 
-Se estiver usando a pasta original, apenas entre nela. O ZIP do AVA não contém o histórico `.git`; o bundle é somente para transportar os commits.
-
-3. No README, substitua o aviso de link pendente pela URL real do seu repositório. Depois, na pasta com Git, execute (substitua `SEU_USUARIO`):
-
-```sh
-git add README.md
-git commit -m "Adiciona link do repositorio GitHub"
-git remote remove origin
-git remote add origin https://github.com/SEU_USUARIO/crm-front.git
-git push -u origin main
-```
-
-Se `git remote remove origin` disser que o remoto não existe, prossiga. O clone do bundle pode criar um origin local, por isso ele é substituído. Autentique-se no GitHub quando solicitado, usando GitHub Desktop, Git Credential Manager ou GitHub CLI; não use a senha da conta como senha de Git HTTPS.
-
-4. Abra a URL no navegador e confira fontes, README e commits. Se privado, conceda acesso à professora.
-5. Recrie o ZIP com o README atualizado, sem dependências:
-
-```sh
-git archive --format=zip --prefix=crm-front/ --output=../crm-front.zip HEAD
-```
-
-Envie esse ZIP e o link confirmado no AVA. Não envie o bundle no lugar do ZIP.
+O ZIP do front contém os mesmos arquivos versionados, sem `.git` ou dependências instaladas.
 
 ## Requisitos
 
@@ -163,4 +138,4 @@ Não execute testes reais simultaneamente. Veja também o [contrato confirmado](
 
 A prova deve ser submetida **pelo AVA**, com o **ZIP do front sem node_modules** e o **link GitHub**, até **22h10 de 17/11/2026, horário de Brasília**.
 
-**Submissão não confirmada.** Gerar o ZIP ou publicar o repositório não equivale a enviar a prova. Só registre a entrega como concluída após confirmação do AVA. O link GitHub permanece pendente conforme indicado acima.
+**Submissão não confirmada.** Gerar o ZIP ou publicar o repositório não equivale a enviar a prova. Só registre a entrega como concluída após confirmação do AVA. Use o link do repositório informado acima junto com o ZIP do front.
