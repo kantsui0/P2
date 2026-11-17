@@ -8,9 +8,9 @@ Aplicação Vite + React + TypeScript com autenticação, clientes, pedidos, his
 
 **Histórico de commits:** https://github.com/kantsui0/P2/commits/main/
 
-**Publicação pendente:** o repositório existe e é público, mas permanece vazio. O envio dos commits foi recusado com HTTP 403 (integração sem permissão de escrita). O endereço está confirmado; os arquivos ainda não estão publicados.
+**Publicado:** fontes, documentação, testes e histórico de commits disponíveis no repositório público acima.
 
-Após liberar a escrita e publicar, será possível obter o código com histórico:
+Para obter o código com histórico:
 
 ```sh
 git clone https://github.com/kantsui0/P2.git crm-front
